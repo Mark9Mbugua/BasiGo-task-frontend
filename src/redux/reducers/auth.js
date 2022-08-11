@@ -1,8 +1,6 @@
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-
-
 import {
   AUTH_ERROR,
   REGISTER_SUCCESS,
@@ -47,15 +45,16 @@ export default function (state = initialState, action) {
         user: action.payload.currentuser,
         token: action.payload.accesstoken,
       };
-    // case LOGIN_SUCCESS:
-    //   localStorage.setItem("accesstoken", action.payload.accesstoken);
-    //   return {
-    //     ...state,
-    //     isAuthenticated: true,
-    //     isLoading: false,
-    //     token: action.payload.token,
-    //     user: jwt_decode(action.payload.token),
-    //   };
+    case LOGIN_SUCCESS:
+      localStorage.setItem("accesstoken", action.payload.accesstoken);
+      return {
+        ...state,
+        isAuthenticated: true,
+        isLoading: false,
+        token: action.payload.accesstoken,
+        // user: jwt_decode(action.payload.token),
+        user: action.payload.currentuser,
+      };
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case REGISTER_FAIL:
