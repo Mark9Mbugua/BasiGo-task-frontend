@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { signUp } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
-import SignUpForm from "../sign-up-form/sign-up-form.component";
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
-const SignUp = ({ isAuthenticated, signUp, clearErrors }) => {
+const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
@@ -85,4 +85,4 @@ const mapStateToProps = (state) => ({
   error: state.errors,
 });
 
-export default connect(mapStateToProps, { signUp, clearErrors })(SignUp);
+export default connect(mapStateToProps, { signUp, clearErrors })(SignUpPage);

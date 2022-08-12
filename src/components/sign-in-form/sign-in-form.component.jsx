@@ -1,34 +1,16 @@
 import React from "react";
 
-import { FormWrapper, FormInput } from "./sign-up-form.styles";
+import { FormWrapper, FormInput } from "./sign-in-form.styles";
 
-const SignUpForm = ({
+const SignInForm = ({
   handleSubmit,
-  setFullName,
-  setRole,
   setEmail,
   setPassword,
 }) => {
   return (
     <>
       <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-        <h3>Sign Up Form</h3>
-        <FormInput
-          type="text"
-          placeholder="Full Names"
-          id="fullName"
-          name="fullName"
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
-        <FormInput
-          type="text"
-          placeholder="Role"
-          id="role"
-          name="role"
-          onChange={(e) => setRole(e.target.value)}
-          required
-        />
+        <h3>Sign In Form</h3>
         <FormInput
           type="text"
           placeholder="Email"
@@ -46,11 +28,11 @@ const SignUpForm = ({
           required
         />
         <div>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Sign In</button>
         </div>
       </FormWrapper>
     </>
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

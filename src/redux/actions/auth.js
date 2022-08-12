@@ -2,15 +2,15 @@ import axios from "axios";
 import { returnErrors } from "./errors";
 
 import {
-//   AUTH_ERROR,
+  //   AUTH_ERROR,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-//   LOGIN_SUCCESS,
-//   LOGIN_FAIL,
-//   USER_LOADING,
-//   USER_LOADED,
-//   LOAD_USER_FAILURE,
-//   LOGOUT_SUCCESS,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  //   USER_LOADING,
+  //   USER_LOADED,
+  //   LOAD_USER_FAILURE,
+  //   LOGOUT_SUCCESS,
 } from "./types";
 
 // Check token & load user
@@ -66,35 +66,37 @@ export const signUp =
       });
   };
 
-// Login User
-// export const login = ({ username, password }) => dispatch => {
-//     // Headers
-//     const config = {
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     };
+// Sign In User
+export const signIn =
+  ({ email, password }) =>
+  (dispatch) => {
+    // Headers
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-//     // Request body
-//     const body = JSON.stringify({ username, password });
+    // Request body
+    const body = JSON.stringify({ email, password });
 
-//     axios
-//         .post('http://127.0.0.1:5000/api/signin', body, config)
-//         .then(res =>
-//             dispatch({
-//             type: LOGIN_SUCCESS,
-//             payload: res.data
-//           }),
-//         )
-//         .catch(err => {
-//             dispatch(
-//                 returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
-//             );
-//             dispatch({
-//                 type: LOGIN_FAIL
-//             });
-//         })
-// };
+    axios
+      .post("http://127.0.0.1:5000/api/auth/signin", body, config)
+      .then((res) =>
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        dispatch(
+          returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
+        );
+        dispatch({
+          type: LOGIN_FAIL,
+        });
+      });
+  };
 
 // // Logout User
 // export const logout = () => {
