@@ -9,8 +9,6 @@ const LeadsPage = ({ getAllLeads, leads }) => {
     getAllLeads();
   }, []);
 
-  console.log(leads);
-
   return (
     <div>
       <h1>Leads Page</h1>

@@ -28,31 +28,6 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
       password,
     };
     signUp(user);
-    // if (isAuthenticated) {
-    //   navigate("/", { replace: true });
-    // }
-    // Attempt to register
-    // if (user.fullName && user.role && user.email && user.password) {
-    // signUp(user).then((res) => {
-    //   if (res.data.success === "true") {
-    //     console.log("registration successful");
-    //     console.log(res.data);
-    //     localStorage.setItem("accesstoken", res.data.accesstoken);
-    //     // history.push("/");
-    //     setFullName("");
-    //     setEmail("");
-    //     setRole("");
-    //     setPassword("");
-    //     navigate("/", { replace: true });
-    //   } else {
-    //     // setVisible(true);
-    //     // setErrorMessage(res.data.message);
-    //     console.log("registration failed");
-    //     console.log(res.data.message);
-    //   }
-    // });
-    // console.log("Well And Good!");
-    // }
   };
 
   if (isAuthenticated) {

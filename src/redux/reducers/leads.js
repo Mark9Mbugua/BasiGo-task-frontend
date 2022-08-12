@@ -1,4 +1,10 @@
-import { GET_ALL_LEADS, GET_LEAD, LEADS_LOADING } from "../actions/types.js";
+import {
+  GET_ALL_LEADS,
+  GET_LEAD,
+  LEADS_LOADING,
+  CREATE_LEAD,
+  CREATE_LEAD_ERROR,
+} from "../actions/types.js";
 
 const initialState = {
   leads: [],
@@ -14,15 +20,28 @@ export default function (state = initialState, action) {
         leads: action.payload,
       };
 
-    // case GET_LEAD:
-    //   return {
-    //     ...state,
-    //     lead: action.payload,
-    //   };
+    case CREATE_LEAD:
+      return {
+        ...state,
+        comments: [action.payload, ...state.leads],
+      };
+
+    case GET_LEAD:
+      return {
+        ...state,
+        lead: action.payload,
+      };
+
     case LEADS_LOADING:
       return {
         ...state,
         loading: true,
+      };
+
+    case CREATE_LEAD_ERROR:
+      return {
+        ...state,
+        user: null,
       };
 
     default:

@@ -12,4 +12,6 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const GET_ALL_LEADS = "GET_ALL_LEADS";
 export const GET_LEAD = 'GET_LEAD';
 export const LEADS_LOADING = 'LEADS_LOADING';
+export const CREATE_LEAD = 'CREATE_LEAD';
+export const CREATE_LEAD_ERROR = 'CREATE_LEAD_ERROR';
 // export const LEAD_LOADING = "LEAD_LOADING";

@@ -1,15 +1,25 @@
-import React from "react";
-
-import CreateLead from "../create-lead/create-lead.component";
+import React, { useState } from "react";
+import CreateLeadModal from "../create-lead-modal/create-lead-modal.component";
 
 const Leads = ({ leads }) => {
+  const [modal, setModal] = useState(false);
+
+  const toggleOpenModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <div>
       <h2>Leads</h2>
-      <CreateLead />
+      <button onClick={() => toggleOpenModal()}>Create A Lead</button>
+      <CreateLeadModal
+        modal={modal}
+        setModal={setModal}
+        toggleOpenModal={toggleOpenModal}
+      />
       <div>
         {leads.map((lead) => (
-          <div>
+          <div key={lead.id}>
             <p>Name: {lead.name}</p>
             <p>Phone Number: {lead.phone}</p>
             <p>Location: {lead.location}</p>
