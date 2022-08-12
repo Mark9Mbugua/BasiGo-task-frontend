@@ -27,9 +27,7 @@ export const getAllLeads = () => (dispatch) => {
 // create a new Lead
 export const createLead = (newLead) => (dispatch) => {
   // Request body
-  console.log(newLead);
-  const body = JSON.stringify( newLead );
-  console.log(body);
+  const body = JSON.stringify(newLead);
 
   axios
     .post("http://127.0.0.1:5000/api/leads/create", body, tokenConfig())
