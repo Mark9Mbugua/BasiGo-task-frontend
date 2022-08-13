@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signIn } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
@@ -27,7 +27,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Navigate to="/leads" />;
   }
 
   return (
@@ -37,6 +37,9 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
         setEmail={setEmail}
         setPassword={setPassword}
       />
+      <p>
+        Don't have an account? <Link to="/sign-up">Sign Up</Link>
+      </p>
     </PageWrapper>
   );
 };
