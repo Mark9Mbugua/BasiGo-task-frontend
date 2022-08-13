@@ -1,34 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CreateLeadModal from "../create-lead-modal/create-lead-modal.component";
+
+import {
+  LeadsPageWrapper,
+  LeadsContainer,
+  LeadDetails,
+  CreateLeadButton,
+  Title,
+} from "./leads.styles";
 
 const Leads = ({ leads }) => {
   const [modal, setModal] = useState(false);
+  const navigate = useNavigate();
 
   const toggleOpenModal = () => {
     setModal(!modal);
   };
 
+  // let leadsCount = leads.length;
+
+  // useEffect(() => {
+  //   console.log(leadsCount);
+  // }, [leads]);
+
   return (
-    <div>
-      <h2>Leads</h2>
-      <button onClick={() => toggleOpenModal()}>Create A Lead</button>
+    <LeadsPageWrapper>
+      <Title>Leads</Title>
+      <CreateLeadButton onClick={() => toggleOpenModal()}>
+        Create A Lead
+      </CreateLeadButton>
       <CreateLeadModal
         modal={modal}
         setModal={setModal}
         toggleOpenModal={toggleOpenModal}
       />
-      <div>
+      <LeadsContainer>
         {leads.map((lead) => (
-          <div key={lead.id}>
+          <LeadDetails key={lead.id}>
             <p>Name: {lead.name}</p>
             <p>Phone Number: {lead.phone}</p>
             <p>Location: {lead.location}</p>
             <p>Created By: {lead.userId}</p>
-            <hr />
-          </div>
+            <Link
+              to={`/create-customer/${lead.id}`} 
+              // onClick={() => navigate(`create-customer/${lead.id}`)}
+              >
+              Convert to Customer
+            </Link>
+            {/* <hr /> */}
+          </LeadDetails>
         ))}
-      </div>
-    </div>
+      </LeadsContainer>
+    </LeadsPageWrapper>
   );
 };
 

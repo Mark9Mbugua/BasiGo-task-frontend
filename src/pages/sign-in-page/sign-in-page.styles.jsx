@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const AuthPageWrapper = styled.div`
+export const PageWrapper = styled.div`
   display: flex;
-  border: 1px solid red;
-  justify-content: space-evenly;
+  justify-content: center;
+  /* border: 1px solid red; */
+  padding-top: 5rem;
 `;

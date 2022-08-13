@@ -122,3 +122,20 @@ export const tokenConfig = () => {
   }
   return config;
 };
+
+// Setup config/headers and token for form uploads
+export const tokenFormConfig = () => {
+  const token = localStorage.getItem("accesstoken");
+
+  // Headers
+  const config = {
+    headers: {},
+  };
+
+  // If token, add to headers
+  if (token) {
+    config.headers["Authorization"] = token;
+  }
+  console.log(config);
+  return config;
+};

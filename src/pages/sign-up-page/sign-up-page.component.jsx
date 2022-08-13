@@ -6,6 +6,7 @@ import { signUp } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import { PageWrapper } from "./sign-up-page.styles";
 
 const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   const [fullName, setFullName] = useState("");
@@ -27,6 +28,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
       email,
       password,
     };
+    console.log(user);
     signUp(user);
   };
 
@@ -35,9 +37,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   }
 
   return (
-    <div>
-      <h2>Sign Up Component</h2>
-
+    <PageWrapper>
       <SignUpForm
         handleSubmit={handleSubmit}
         fullName={fullName}
@@ -49,7 +49,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
         password={password}
         setPassword={setPassword}
       />
-    </div>
+    </PageWrapper>
   );
 };
 

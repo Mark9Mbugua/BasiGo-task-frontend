@@ -1,16 +1,17 @@
 import React from "react";
 
-import { FormWrapper, FormInput } from "./sign-in-form.styles";
+import {
+  FormWrapper,
+  FormInput,
+  SignUpButton,
+  PageTitle,
+} from "./sign-in-form.styles";
 
-const SignInForm = ({
-  handleSubmit,
-  setEmail,
-  setPassword,
-}) => {
+const SignInForm = ({ handleSubmit, setEmail, setPassword }) => {
   return (
     <>
       <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-        <h3>Sign In Form</h3>
+        <PageTitle>Sign In Form</PageTitle>
         <FormInput
           type="text"
           placeholder="Email"
@@ -28,7 +29,7 @@ const SignInForm = ({
           required
         />
         <div>
-          <button type="submit">Sign In</button>
+          <SignUpButton type="submit">Sign In</SignUpButton>
         </div>
       </FormWrapper>
     </>

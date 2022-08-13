@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
     case CREATE_LEAD:
       return {
         ...state,
-        comments: [action.payload, ...state.leads],
+        leads: [action.payload, ...state.leads],
       };
 
     case GET_LEAD:

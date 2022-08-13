@@ -5,6 +5,7 @@ import { signIn } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
+import { PageWrapper } from "./sign-in-page.styles";
 
 const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   const [email, setEmail] = useState("");
@@ -30,15 +31,13 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   }
 
   return (
-    <div>
-      <h2>Sign In Component</h2>
-
+    <PageWrapper>
       <SignInForm
         handleSubmit={handleSubmit}
         setEmail={setEmail}
         setPassword={setPassword}
       />
-    </div>
+    </PageWrapper>
   );
 };
 
