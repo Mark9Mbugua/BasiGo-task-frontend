@@ -20,10 +20,6 @@ const Leads = ({ leads }) => {
 
   // let leadsCount = leads.length;
 
-  // useEffect(() => {
-  //   console.log(leadsCount);
-  // }, [leads]);
-
   return (
     <LeadsPageWrapper>
       <Title>Leads</Title>
@@ -42,13 +38,7 @@ const Leads = ({ leads }) => {
             <p>Phone Number: {lead.phone}</p>
             <p>Location: {lead.location}</p>
             <p>Created By: {lead.userId}</p>
-            <Link
-              to={`/create-customer/${lead.id}`} 
-              // onClick={() => navigate(`create-customer/${lead.id}`)}
-              >
-              Convert to Customer
-            </Link>
-            {/* <hr /> */}
+            <Link to={`/create-customer/${lead.id}`}>Convert to Customer</Link>
           </LeadDetails>
         ))}
       </LeadsContainer>
