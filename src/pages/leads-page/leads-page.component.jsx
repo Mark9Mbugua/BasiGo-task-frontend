@@ -5,13 +5,14 @@ import { getAllLeads } from "../../redux/actions/leads";
 import Leads from "../../components/leads/leads.component";
 
 const LeadsPage = ({ getAllLeads, leads }) => {
+  // let leadsCount = leads.length;
+
   useEffect(() => {
     getAllLeads();
   }, []);
 
   return (
     <div>
-      <h1>Leads Page</h1>
       <Leads leads={leads} />
     </div>
   );

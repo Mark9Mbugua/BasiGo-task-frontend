@@ -49,11 +49,11 @@ export const createLead = (newLead) => (dispatch) => {
 export const getLead = (id) => (dispatch) => {
   let url = `http://127.0.0.1:5000/api/leads/view/${id}/`;
   axios
-    .get(url)
+    .get(url, tokenConfig())
     .then((res) => {
       dispatch({
         type: GET_LEAD,
-        payload: res.data,
+        payload: res.data.data,
       });
     })
     .catch((err) => console.log(err));

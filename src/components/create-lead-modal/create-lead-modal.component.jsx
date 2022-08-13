@@ -30,7 +30,7 @@ const CreateLeadModal = ({ modal, toggleOpenModal, setModal, createLead }) => {
       location,
       gender,
     };
-    createLead(newLead);;
+    createLead(newLead);
   };
   return (
     <Modal

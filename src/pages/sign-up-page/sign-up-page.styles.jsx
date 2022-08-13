@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const SignUpWrapper = styled.div`
-  /* display: flex;
-  border: 1px solid red;
-  justify-content: space-evenly; */
+export const PageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
 `;
