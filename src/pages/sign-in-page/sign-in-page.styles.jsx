@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const PageWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  /* border: 1px solid red; */
-  padding-top: 5rem;
+  align-items: center;
+  /* padding-top: 5rem; */
 `;

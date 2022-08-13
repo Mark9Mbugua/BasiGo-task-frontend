@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { signUp } from "../../api/main";
 import { signUp } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
@@ -33,7 +32,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Navigate to="/leads" />;
   }
 
   return (
@@ -49,6 +48,9 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
         password={password}
         setPassword={setPassword}
       />
+      <p>
+        Already have an account? <Link to="/">Sign In</Link>
+      </p>
     </PageWrapper>
   );
 };
