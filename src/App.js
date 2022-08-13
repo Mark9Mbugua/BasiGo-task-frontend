@@ -1,19 +1,31 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import AuthPage from "./pages/auth-page/auth-page.component";
+import store from "./redux/store";
+
+import AuthPage from "./pages/sign-in-page/sign-in-page.component";
 import LeadsPage from "./pages/leads-page/leads-page.component";
+import SignUpPage from "./pages/sign-up-page/sign-up-page.component";
+import CreateCustomerPage from "./pages/create-customer-page/create-customer-page.component";
+import CustomersPage from "./pages/customers-page/customers-page.component";
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<LeadsPage />} />
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/customers" element={<CustomersPage />} />
+        <Route path="/sign-in" element={<AuthPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route
+          path="/create-customer/:leadId"
+          element={<CreateCustomerPage />}
+        />
       </Routes>
-    </div>
+    </Provider>
   );
 }
 
