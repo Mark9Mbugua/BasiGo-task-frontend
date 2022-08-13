@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 
+import { MainWrapper, FormHeader } from "./create-customer-page.styles";
+
 import { getLead } from "../../redux/actions/leads";
 import { createCustomer } from "../../redux/actions/customers";
 
@@ -53,8 +55,9 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
   };
 
   return (
-    <>
+    <MainWrapper>
       <Form onSubmit={(e) => handleSubmit(e)}>
+        <FormHeader>Generate A Customer</FormHeader>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input
@@ -130,7 +133,6 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
           </Input>
         </FormGroup>
         <FormGroup>
-          <Label for="file">File</Label>
           <input
             type="file"
             name="photo"
@@ -143,11 +145,12 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
         <Button
           type="submit
         "
+          color="primary"
         >
           Create New Customer
         </Button>
       </Form>
-    </>
+    </MainWrapper>
   );
 };
 
