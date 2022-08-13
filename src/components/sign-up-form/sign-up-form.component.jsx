@@ -28,15 +28,7 @@ const SignUpForm = ({
         onChange={(e) => setFullName(e.target.value)}
         required
       />
-      <FormInput
-        type="text"
-        placeholder="Role"
-        id="role"
-        name="role"
-        onChange={(e) => setRole(e.target.value)}
-        required
-      />
-      {/* <UserRoleDropDown role={role} setRole={setRole} /> */}
+      <UserRoleDropDown role={role} setRole={setRole} />
       <FormInput
         type="text"
         placeholder="Email"
