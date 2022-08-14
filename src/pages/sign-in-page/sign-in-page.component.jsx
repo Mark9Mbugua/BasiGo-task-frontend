@@ -5,7 +5,9 @@ import { signIn } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
+
 import { PageWrapper } from "./sign-in-page.styles";
+import { CustomLink } from "../../components/common/global-styles.styles";
 
 const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   const [email, setEmail] = useState("");
@@ -27,7 +29,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/leads" />;
+    return <Navigate to="/" />;
   }
 
   return (
@@ -38,7 +40,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
         setPassword={setPassword}
       />
       <p>
-        Don't have an account? <Link to="/sign-up">Sign Up</Link>
+        Don't have an account? <CustomLink to="/sign-up">Sign Up</CustomLink>
       </p>
     </PageWrapper>
   );

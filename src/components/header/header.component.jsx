@@ -12,7 +12,7 @@ const Header = () => {
         <Title>BasiGO Tech Challenge</Title>
       </TitleWrapper>
       <NavList>
-        <CustomLink to="/leads">Leads</CustomLink>
+        <CustomLink to="/">Leads</CustomLink>
         <CustomLink to="/customers">Customers</CustomLink>
         <NavList>
           <SignOut />

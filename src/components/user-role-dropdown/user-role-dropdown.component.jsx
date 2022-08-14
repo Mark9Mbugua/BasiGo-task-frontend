@@ -30,7 +30,7 @@ const UserRoleDropDown = ({ role, setRole }) => {
     <Main>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
-          Role: {role || "LEAD GENERATOR"}
+          Role: {role }
           <DropdownArrow src={dropDownIcon} />
         </DropDownHeader>
         {isOpen && (

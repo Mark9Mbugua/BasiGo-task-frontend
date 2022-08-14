@@ -30,7 +30,7 @@ const SignUpForm = ({
       />
       <UserRoleDropDown role={role} setRole={setRole} />
       <FormInput
-        type="text"
+        type="email"
         placeholder="Email"
         id="email"
         name="email"
