@@ -18,10 +18,10 @@ const LeadsPage = ({ getAllLeads, leads, user }) => {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <Leads leads={leads} adminRole={adminRole} />
-    </div>
+    </>
   );
 };
 

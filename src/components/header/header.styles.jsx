@@ -15,11 +15,6 @@ export const TitleWrapper = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.h3`
-  color: #1c4587;
-  font-weight: 700;
-`;
-
 export const NavList = styled.ul`
   display: flex;
   flex-wrap: wrap;

@@ -7,7 +7,9 @@ import { clearErrors } from "../../redux/actions/errors";
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
 
 import { PageWrapper } from "./sign-in-page.styles";
-import { CustomLink } from "../../components/common/global-styles.styles";
+import {
+  CustomLink,
+} from "../../components/common/global-styles.styles";
 
 const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   const [email, setEmail] = useState("");

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import CreateLeadModal from "../create-lead-modal/create-lead-modal.component";
 
+import { LeadDetails, CreateLeadButton } from "./leads.styles";
+
 import {
-  LeadsPageWrapper,
-  LeadsContainer,
-  LeadDetails,
-  CreateLeadButton,
+  ItemsPageWrapper,
+  ItemsContainer,
   Title,
-} from "./leads.styles";
+  ItemTitle,
+  Text,
+} from "../common/global-styles.styles";
 
 import { CustomLink } from "../common/global-styles.styles";
 
@@ -19,7 +21,7 @@ const Leads = ({ leads, adminRole }) => {
   };
 
   return (
-    <LeadsPageWrapper>
+    <ItemsPageWrapper>
       <Title>Leads</Title>
       {adminRole === "LEAD GENERATOR" && (
         <CreateLeadButton onClick={() => toggleOpenModal()}>
@@ -31,13 +33,25 @@ const Leads = ({ leads, adminRole }) => {
         setModal={setModal}
         toggleOpenModal={toggleOpenModal}
       />
-      <LeadsContainer>
+      <ItemsContainer>
         {leads.map((lead) => (
           <LeadDetails key={lead.id}>
-            <p>Name: {lead.name}</p>
-            <p>Phone Number: {lead.phone}</p>
-            <p>Location: {lead.location}</p>
-            <p>Created By: {lead.User?.username}</p>
+            <Text>
+              <ItemTitle>Name: </ItemTitle>
+              {lead.name}
+            </Text>
+            <Text>
+              <ItemTitle>Phone Number: </ItemTitle>
+              {lead.phone}
+            </Text>
+            <Text>
+              <ItemTitle>Location: </ItemTitle>
+              {lead.location}
+            </Text>
+            <Text>
+              <ItemTitle>Created By: </ItemTitle>
+              {lead.User?.username}
+            </Text>
             {adminRole === "CUSTOMER GENERATOR" && (
               <CustomLink to={`/create-customer/${lead.id}`}>
                 Convert to Customer
@@ -45,8 +59,8 @@ const Leads = ({ leads, adminRole }) => {
             )}
           </LeadDetails>
         ))}
-      </LeadsContainer>
-    </LeadsPageWrapper>
+      </ItemsContainer>
+    </ItemsPageWrapper>
   );
 };
 
