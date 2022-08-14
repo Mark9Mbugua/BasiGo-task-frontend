@@ -13,7 +13,6 @@ import dropDownIcon from "../../assets/down-arrow.png";
 
 const UserRoleDropDown = ({ role, setRole }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [selectedOption, setSelectedOption] = useState(null);
 
   const toggling = () => setIsOpen(!isOpen);
 
@@ -31,7 +30,7 @@ const UserRoleDropDown = ({ role, setRole }) => {
     <Main>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
-          {role || "LEAD GENERATOR"}
+          Role: {role || "LEAD GENERATOR"}
           <DropdownArrow src={dropDownIcon} />
         </DropDownHeader>
         {isOpen && (

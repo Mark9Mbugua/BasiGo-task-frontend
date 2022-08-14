@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { getAllLeads } from "../../redux/actions/leads";
 
 import Leads from "../../components/leads/leads.component";
+import Header from "../../components/header/header.component";
 
 const LeadsPage = ({ getAllLeads, leads }) => {
-  // let leadsCount = leads.length;
 
   useEffect(() => {
     getAllLeads();
@@ -13,6 +13,7 @@ const LeadsPage = ({ getAllLeads, leads }) => {
 
   return (
     <div>
+      <Header />
       <Leads leads={leads} />
     </div>
   );

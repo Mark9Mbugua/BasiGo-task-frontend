@@ -9,6 +9,7 @@ import LeadsPage from "./pages/leads-page/leads-page.component";
 import SignUpPage from "./pages/sign-up-page/sign-up-page.component";
 import CreateCustomerPage from "./pages/create-customer-page/create-customer-page.component";
 import CustomersPage from "./pages/customers-page/customers-page.component";
+import PrivateRoute from "./components/common/private-route.component";
 
 import "./App.css";
 
@@ -24,6 +25,14 @@ function App() {
           path="/create-customer/:leadId"
           element={<CreateCustomerPage />}
         />
+        {/* <Route
+          path="/customers"
+          element={
+            <PrivateRoute>
+              <CustomersPage />
+            </PrivateRoute>
+          }
+        /> */}
       </Routes>
     </Provider>
   );

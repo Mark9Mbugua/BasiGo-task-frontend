@@ -10,7 +10,7 @@ import {
   //   USER_LOADING,
   //   USER_LOADED,
   //   LOAD_USER_FAILURE,
-  //   LOGOUT_SUCCESS,
+    LOGOUT_SUCCESS,
 } from "./types";
 
 // Check token & load user
@@ -98,12 +98,12 @@ export const signIn =
       });
   };
 
-// // Logout User
-// export const logout = () => {
-//   return {
-//     type: LOGOUT_SUCCESS
-//   };
-// };
+// Logout User
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  };
+};
 
 // Setup config/headers and token
 export const tokenConfig = () => {

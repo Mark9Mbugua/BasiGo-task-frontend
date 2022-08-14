@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import CreateLeadModal from "../create-lead-modal/create-lead-modal.component";
 
 import {
@@ -10,15 +9,14 @@ import {
   Title,
 } from "./leads.styles";
 
+import { CustomLink } from "../common/global-styles.styles";
+
 const Leads = ({ leads }) => {
   const [modal, setModal] = useState(false);
-  const navigate = useNavigate();
 
   const toggleOpenModal = () => {
     setModal(!modal);
   };
-
-  // let leadsCount = leads.length;
 
   return (
     <LeadsPageWrapper>
@@ -38,7 +36,9 @@ const Leads = ({ leads }) => {
             <p>Phone Number: {lead.phone}</p>
             <p>Location: {lead.location}</p>
             <p>Created By: {lead.userId}</p>
-            <Link to={`/create-customer/${lead.id}`}>Convert to Customer</Link>
+            <CustomLink to={`/create-customer/${lead.id}`}>
+              Convert to Customer
+            </CustomLink>
           </LeadDetails>
         ))}
       </LeadsContainer>
