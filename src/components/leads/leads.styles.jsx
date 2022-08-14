@@ -6,7 +6,7 @@ export const LeadsPageWrapper = styled.div`
   gap: 1rem;
   /* border: 1px solid red; */
   align-items: space-evenly;
-  margin: 3rem 6rem;
+  margin: 2rem 6rem;
 `;
 
 export const Title = styled.h2`

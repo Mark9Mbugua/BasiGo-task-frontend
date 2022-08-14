@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getAllCustomers } from "../../redux/actions/customers";
 
+import Header from "../../components/header/header.component";
+
 const CustomersPage = ({ getAllCustomers, customers }) => {
   useEffect(() => {
     getAllCustomers();
@@ -9,6 +11,7 @@ const CustomersPage = ({ getAllCustomers, customers }) => {
 
   return (
     <div>
+      <Header />
       <h1>Customers Page</h1>
       <div>
         {customers.map((customer) => (
