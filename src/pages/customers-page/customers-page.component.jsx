@@ -16,8 +16,6 @@ import {
   CustomerImg,
   ImgContainer,
   ItemDetails,
-  ItemTitle,
-  Text,
 } from "./customers-page.styles";
 
 const CustomersPage = ({ getAllCustomers, customers }) => {
