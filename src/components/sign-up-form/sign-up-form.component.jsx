@@ -19,7 +19,7 @@ const SignUpForm = ({
 }) => {
   return (
     <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-      <PageTitle>Sign Up Form</PageTitle>
+      <PageTitle>BasiGo Sign Up</PageTitle>
       <FormInput
         type="text"
         placeholder="Full Names"

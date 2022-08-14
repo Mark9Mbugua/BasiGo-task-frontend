@@ -31,7 +31,7 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
 
   console.log(file);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log("products", products);
@@ -49,7 +49,7 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
 
     createCustomer(formData);
 
-    navigate("/customers");
+    await navigate("/customers");
   };
 
   const handleSelect = (selectedProducts) => {
@@ -123,7 +123,7 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="products">Select Multiple</Label>
+            <Label for="products">Select Multiple (CTRL + Click to select multiple products)</Label>
             <Input
               type="select"
               name="products"
