@@ -15,10 +15,10 @@ import {
 
 const initialState = {
   token: localStorage.getItem("accesstoken"),
-  isAuthenticated: null,
+  isAuthenticated: false,
   isLoading: false,
   user: null,
-  success: false,
+  // success: false,
 };
 
 export default function (state = initialState, action) {

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../../redux/actions/auth";
 import { clearErrors } from "../../redux/actions/errors";
 
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+
 import { PageWrapper } from "./sign-up-page.styles";
+import { CustomLink } from "../../components/common/global-styles.styles";
 
 const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   const [fullName, setFullName] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("LEAD GENERATOR");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,18 +23,17 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
     e.preventDefault();
 
     // Create user object
-    const user = {
+    const newUser = {
       fullname: fullName,
       role,
       email,
       password,
     };
-    console.log(user);
-    signUp(user);
+    signUp(newUser);
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/leads" />;
+    return <Navigate to="/" />;
   }
 
   return (
@@ -49,7 +50,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
         setPassword={setPassword}
       />
       <p>
-        Already have an account? <Link to="/">Sign In</Link>
+        Already have an account? <CustomLink to="/sign-in">Sign In</CustomLink>
       </p>
     </PageWrapper>
   );
