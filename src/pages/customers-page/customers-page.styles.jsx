@@ -18,14 +18,6 @@ export const CustomerImg = styled.img`
   align-self: center;
 `;
 
-// export const ItemTitle = styled.span`
-//   font-weight: bold;
-// `;
-
-// export const Text = styled.p`
-//   font-size: 0.9rem;
-// `;
-
 export const ItemDetails = styled.div`
   display: flex;
   flex-wrap: wrap;
