@@ -11,7 +11,7 @@ import {
 
 import { CustomLink } from "../common/global-styles.styles";
 
-const Leads = ({ leads }) => {
+const Leads = ({ leads, adminRole }) => {
   const [modal, setModal] = useState(false);
 
   const toggleOpenModal = () => {
@@ -21,9 +21,11 @@ const Leads = ({ leads }) => {
   return (
     <LeadsPageWrapper>
       <Title>Leads</Title>
-      <CreateLeadButton onClick={() => toggleOpenModal()}>
-        Create A Lead
-      </CreateLeadButton>
+      {adminRole === "LEAD GENERATOR" && (
+        <CreateLeadButton onClick={() => toggleOpenModal()}>
+          Create A Lead
+        </CreateLeadButton>
+      )}
       <CreateLeadModal
         modal={modal}
         setModal={setModal}
@@ -35,10 +37,12 @@ const Leads = ({ leads }) => {
             <p>Name: {lead.name}</p>
             <p>Phone Number: {lead.phone}</p>
             <p>Location: {lead.location}</p>
-            <p>Created By: {lead.userId}</p>
-            <CustomLink to={`/create-customer/${lead.id}`}>
-              Convert to Customer
-            </CustomLink>
+            <p>Created By: {lead.User?.username}</p>
+            {adminRole === "CUSTOMER GENERATOR" && (
+              <CustomLink to={`/create-customer/${lead.id}`}>
+                Convert to Customer
+              </CustomLink>
+            )}
           </LeadDetails>
         ))}
       </LeadsContainer>
