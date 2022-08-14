@@ -7,11 +7,13 @@ import {
   PageTitle,
 } from "./sign-in-form.styles";
 
+import { HeaderTitle } from "../common/global-styles.styles";
+
 const SignInForm = ({ handleSubmit, setEmail, setPassword }) => {
   return (
     <>
       <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-        <PageTitle>Sign In Form</PageTitle>
+        <PageTitle>BasiGo Sign In</PageTitle>
         <FormInput
           type="text"
           placeholder="Email"
