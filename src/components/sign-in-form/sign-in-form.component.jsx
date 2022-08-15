@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "reactstrap";
 
 import {
   FormWrapper,
@@ -7,13 +8,12 @@ import {
   PageTitle,
 } from "./sign-in-form.styles";
 
-import { HeaderTitle } from "../common/global-styles.styles";
-
-const SignInForm = ({ handleSubmit, setEmail, setPassword }) => {
+const SignInForm = ({ handleSubmit, setEmail, setPassword, error }) => {
   return (
     <>
       <FormWrapper onSubmit={(e) => handleSubmit(e)}>
         <PageTitle>BasiGo Sign In</PageTitle>
+        {error.message ? <Alert color="danger">{error.message}</Alert> : null}
         <FormInput
           type="text"
           placeholder="Email"

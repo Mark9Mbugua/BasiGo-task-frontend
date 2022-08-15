@@ -86,6 +86,7 @@ const CreateLeadModal = ({ modal, toggleOpenModal, setModal, createLead }) => {
             name="gender"
             id="gender"
             placeholder="Gender"
+            required
             onChange={(e) => setGender(e.target.value)}
             style={{
               marginBlock: "1rem",

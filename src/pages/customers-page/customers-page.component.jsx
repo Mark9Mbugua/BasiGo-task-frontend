@@ -23,7 +23,7 @@ const CustomersPage = ({ getAllCustomers, customers }) => {
     getAllCustomers();
   }, []);
 
-  console.log(customers);
+  // console.log(customers);
 
   return (
     <>
