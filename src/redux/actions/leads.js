@@ -38,7 +38,7 @@ export const createLead = (newLead) => (dispatch) => {
       })
     )
     .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch(returnErrors(err.response.data.message, err.response.status));
       dispatch({
         type: CREATE_LEAD_ERROR,
       });

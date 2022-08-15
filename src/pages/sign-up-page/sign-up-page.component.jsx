@@ -9,7 +9,7 @@ import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 import { PageWrapper } from "./sign-up-page.styles";
 import { CustomLink } from "../../components/common/global-styles.styles";
 
-const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
+const SignUpPage = ({ isAuthenticated, signUp, clearErrors, error }) => {
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState("LEAD GENERATOR");
   const [email, setEmail] = useState("");
@@ -39,6 +39,7 @@ const SignUpPage = ({ isAuthenticated, signUp, clearErrors }) => {
   return (
     <PageWrapper>
       <SignUpForm
+        error={error}
         handleSubmit={handleSubmit}
         fullName={fullName}
         setFullName={setFullName}

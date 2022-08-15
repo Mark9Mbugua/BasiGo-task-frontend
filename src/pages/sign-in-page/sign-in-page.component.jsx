@@ -7,11 +7,9 @@ import { clearErrors } from "../../redux/actions/errors";
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
 
 import { PageWrapper } from "./sign-in-page.styles";
-import {
-  CustomLink,
-} from "../../components/common/global-styles.styles";
+import { CustomLink } from "../../components/common/global-styles.styles";
 
-const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
+const SignInPage = ({ isAuthenticated, signIn, clearErrors, error }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +17,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
     clearErrors();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Sign In User
@@ -27,7 +25,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
       email,
       password,
     };
-    signIn(user);
+    await signIn(user);
   };
 
   if (isAuthenticated) {
@@ -37,6 +35,7 @@ const SignInPage = ({ isAuthenticated, signIn, clearErrors }) => {
   return (
     <PageWrapper>
       <SignInForm
+        error={error}
         handleSubmit={handleSubmit}
         setEmail={setEmail}
         setPassword={setPassword}

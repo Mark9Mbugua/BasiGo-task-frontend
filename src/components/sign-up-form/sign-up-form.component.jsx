@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "reactstrap";
 
 import UserRoleDropDown from "../user-role-dropdown/user-role-dropdown.component";
 
@@ -16,10 +17,12 @@ const SignUpForm = ({
   setRole,
   setEmail,
   setPassword,
+  error,
 }) => {
   return (
     <FormWrapper onSubmit={(e) => handleSubmit(e)}>
       <PageTitle>BasiGo Sign Up</PageTitle>
+      {error.message ? <Alert color="danger">{error.message}</Alert> : null}
       <FormInput
         type="text"
         placeholder="Full Names"

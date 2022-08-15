@@ -9,6 +9,8 @@ import {
   CUSTOMERS_LOADING,
   CREATE_CUSTOMER,
   CREATE_CUSTOMER_ERROR,
+  GET_CUSTOMER_ERROR,
+  GET_CUSTOMERS_ERROR,
 } from "./types";
 
 //get all customers
@@ -22,15 +24,16 @@ export const getAllCustomers = () => (dispatch) => {
         payload: res.data.data.leads,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      dispatch(returnErrors(err.response.data.message, err.response.status));
+      dispatch({
+        type: GET_CUSTOMERS_ERROR,
+      });
+    });
 };
 
 // create a new customer
 export const createCustomer = (newCustomer) => (dispatch) => {
-  // Request body
-  // const body = JSON.stringify(newCustomer);
-  console.log(newCustomer);
-
   axios
     .post(
       "http://127.0.0.1:5000/api/leads/create",
@@ -44,7 +47,7 @@ export const createCustomer = (newCustomer) => (dispatch) => {
       })
     )
     .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch(returnErrors(err.response.data.message, err.response.status));
       dispatch({
         type: CREATE_CUSTOMER_ERROR,
       });
@@ -62,7 +65,12 @@ export const getCustomer = (id) => (dispatch) => {
         payload: res.data.data,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      dispatch(returnErrors(err.response.data.message, err.response.status));
+      dispatch({
+        type: GET_CUSTOMER_ERROR,
+      });
+    });
 };
 
 //when customers are loading from the backend
