@@ -49,6 +49,10 @@ const Leads = ({ leads, adminRole }) => {
               {lead.location}
             </Text>
             <Text>
+              <ItemTitle>Gender: </ItemTitle>
+              {lead.gender}
+            </Text>
+            <Text>
               <ItemTitle>Created By: </ItemTitle>
               {lead.User?.username}
             </Text>
