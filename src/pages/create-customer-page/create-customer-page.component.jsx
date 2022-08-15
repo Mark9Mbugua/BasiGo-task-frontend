@@ -15,7 +15,7 @@ import { createCustomer } from "../../redux/actions/customers";
 import Header from "../../components/header/header.component";
 
 const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
-  const [annualEarning, setAnnualEarning] = useState(0);
+  const [annualEarning, setAnnualEarning] = useState("");
   const [products, setProducts] = useState([]);
   const [file, setFile] = useState("");
 
@@ -29,12 +29,12 @@ const CreateCustomerPage = ({ getLead, lead, createCustomer }) => {
 
   const { name, phone, location, gender } = lead;
 
-  console.log(file);
+  // console.log(file);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("products", products);
+    // console.log("products", products);
 
     const formData = new FormData();
 

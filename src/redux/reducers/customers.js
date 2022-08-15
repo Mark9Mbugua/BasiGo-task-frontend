@@ -4,6 +4,8 @@ import {
   CUSTOMERS_LOADING,
   CREATE_CUSTOMER,
   CREATE_CUSTOMER_ERROR,
+  GET_CUSTOMER_ERROR,
+  GET_CUSTOMERS_ERROR,
 } from "../actions/types.js";
 
 const initialState = {
@@ -37,12 +39,18 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
       };
+    case GET_CUSTOMER_ERROR:
+    case CREATE_CUSTOMER_ERROR:
+      return {
+        ...state,
+        customer: {},
+      };
 
-      case CREATE_CUSTOMER_ERROR:
-        return {
-          ...state,
-          user: null,
-        };
+    case GET_CUSTOMERS_ERROR:
+      return {
+        ...state,
+        customers: [],
+      };
 
     default:
       return state;

@@ -25,7 +25,7 @@ const LeadsPage = ({ getAllLeads, leads, user }) => {
   );
 };
 
-// export default LeadsPage;
+
 const mapStateToProps = (state) => ({
   leads: state.leads.leads,
   user: state.auth.user,

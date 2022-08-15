@@ -58,7 +58,7 @@ export const signUp =
       )
       .catch((err) => {
         dispatch(
-          returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
+          returnErrors(err.response.data.message, err.response.status)
         );
         dispatch({
           type: REGISTER_FAIL,
@@ -90,7 +90,7 @@ export const signIn =
       )
       .catch((err) => {
         dispatch(
-          returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
+          returnErrors(err.response.data.message, err.response.status)
         );
         dispatch({
           type: LOGIN_FAIL,
