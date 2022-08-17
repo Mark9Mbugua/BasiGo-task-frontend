@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import moment from "moment";
+
 import CreateLeadModal from "../create-lead-modal/create-lead-modal.component";
 
 import { LeadDetails, CreateLeadButton } from "./leads.styles";
@@ -51,6 +53,10 @@ const Leads = ({ leads, adminRole }) => {
             <Text>
               <ItemTitle>Gender: </ItemTitle>
               {lead.gender}
+            </Text>
+            <Text>
+              <ItemTitle>Date: </ItemTitle>
+              {Date(lead.createdAt)}
             </Text>
             <Text>
               <ItemTitle>Created By: </ItemTitle>
