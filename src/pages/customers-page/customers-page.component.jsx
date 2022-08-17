@@ -49,6 +49,10 @@ const CustomersPage = ({ getAllCustomers, customers }) => {
                 {customer.location}
               </Text>
               <Text>
+                <ItemTitle>Date: </ItemTitle>
+                {Date(customer.createdAt)}
+              </Text>
+              <Text>
                 <ItemTitle>Created By: </ItemTitle>
                 {customer.User?.username}
               </Text>
