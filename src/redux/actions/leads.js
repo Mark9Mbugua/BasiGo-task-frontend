@@ -56,7 +56,12 @@ export const getLead = (id) => (dispatch) => {
         payload: res.data.data,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      dispatch(returnErrors(err.response.data.message, err.response.status));
+      dispatch({
+        type: CREATE_LEAD_ERROR,
+      });
+    });
 };
 
 //when leads are loading from the backend

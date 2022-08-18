@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import moment from "moment";
+
 import { getAllCustomers } from "../../redux/actions/customers";
 
 import Header from "../../components/header/header.component";
@@ -22,8 +24,6 @@ const CustomersPage = ({ getAllCustomers, customers }) => {
   useEffect(() => {
     getAllCustomers();
   }, []);
-
-  // console.log(customers);
 
   return (
     <>
@@ -50,7 +50,7 @@ const CustomersPage = ({ getAllCustomers, customers }) => {
               </Text>
               <Text>
                 <ItemTitle>Date: </ItemTitle>
-                {Date(customer.createdAt)}
+                {moment(customer.createdAt).utc().format("YYYY-MM-DD")}
               </Text>
               <Text>
                 <ItemTitle>Created By: </ItemTitle>
