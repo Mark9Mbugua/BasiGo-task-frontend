@@ -56,7 +56,7 @@ const Leads = ({ leads, adminRole }) => {
             </Text>
             <Text>
               <ItemTitle>Date: </ItemTitle>
-              {Date(lead.createdAt)}
+              {moment(lead.createdAt).utc().format('YYYY-MM-DD')}
             </Text>
             <Text>
               <ItemTitle>Created By: </ItemTitle>
